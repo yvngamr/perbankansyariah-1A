@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:url" content="https://myportfolio.vercel.app/">
+    <meta property="og:description" content="Website Perbankan Syari'ah 1A">
+    <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU">
+  
+<title>PS 1A</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU" type="jpg/png">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: '  Poppins', Times New Roman;
+        line-height: 1.6;
+        color: #333;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    header {
+        background-color: #2c3e50;
+        color: #fff;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.5em;
+        font-weight: bold;
+        background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 5s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .back-link {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .back-link:hover {
+        color: #3498db;
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    main {
+        padding: 8rem 0 2rem; /* Updated padding */
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 2.5em;
+        color: #2c3e50;
+    }
+
+    .search-container {
+        margin-top: 55px;
+        text-align: center;
+        position: relative;
+        display: flex; /* Updated display */
+        justify-content: center; /* Updated justify-content */
+        align-items: center; /* Updated align-items */
+    }
+
+    .search-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    #search-input {
+        width: 100%;
+        max-width: 400px;
+        padding: 0.75rem 1rem 0.75rem 2.5rem;
+        font-size: 1rem;
+        border: none;
+        border-radius: 25px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+    }
+
+    #search-input:focus {
+        outline: none;
+        box-shadow: 0 2px 15px rgba(52, 152, 219, 0.3);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: calc(50% - 185px); /* Updated left position */
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%); /* Updated transform */
+        color: #7f8c8d;
+        pointer-events: none; /* Added pointer-events */
+    }
+
+    .filter-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    .filter-btn {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        margin: 0 0.5rem;
+        cursor: pointer;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .filter-btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .filter-btn.active {
+        background-color: #2980b9;
+        box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .students {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .student-card {
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        transform: translateY(0);
+    }
+
+    .student-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+   .student-photo {
+    width: 110%;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+    .student-card:hover .student-photo {
+        transform: scale(1.1);
+    }
+
+    .student-info {
+        padding: 1.5rem;
+    }
+
+    .student-info h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.4em;
+        color: #2c3e50;
+    }
+
+    .student-details {
+        display: none;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid #eee;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .student-details.show {
+        display: block;
+        opacity: 1;
+    }
+    
+   @keyframes smoothFlicker {
+    0% {
+        background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+    }
+    25% {
+        background: linear-gradient(45deg, #FEDA77, #DD2A7B, #8134AF, #515BD4, #F58529);
+    }
+    50% {
+        background: linear-gradient(45deg, #DD2A7B, #8134AF, #515BD4, #F58529, #FEDA77);
+    }
+    75% {
+        background: linear-gradient(45deg, #8134AF, #515BD4, #F58529, #FEDA77, #DD2A7B);
+    }
+    100% {
+        background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+    }
+}
+
+.instagram-button {
+    background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin-top: 0.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    animation: smoothFlicker 3s infinite linear;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 15px rgba(81, 91, 212, 0.4);
+}
+
+.instagram-button:hover {
+    animation: none;
+    transform: scale(1.05);
+    box-shadow: 0px 6px 20px rgba(81, 91, 212, 0.6);
+}
+
+    .greeting {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        color: #3498db;
+        font-weight: bold;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+    }
+
+    .greeting.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+    }
+
+    .stats.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .stat-item {
+        text-align: center;
+        background-color: #fff;
+        padding: 1rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-value {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #3498db;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: #7f8c8d;
+    }
+
+    footer {
+        background-color: #2c3e50;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+        .students {
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+    }
+
+    @media (max-width: 480px) {
+        .filter-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .filter-btn {
+            margin: 0.5rem 0;
+            width: 80%;
+        }
+    }
+</style>
+</head>
+<body>
+<header>
+    <nav class="container">
+        <div class="logo">Perbankan Syari'ah A</div>
+        <a href="./index.html" class="back-link">Back to Home</a>
+    </nav>
+</header>
+
+<main class="container">
+    <h1>Student List</h1>
+    <div class="search-container">
+        <div class="search-wrapper">
+            <input type="text" id="search-input" placeholder="Search for a student...">
+            <svg xmlns="http://www.w3.org/2000/svg" class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+        </div>
+    </div>
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="boy">Boys</button>
+        <button class="filter-btn" data-filter="girl">Girls</button>
+    </div>
+    <div id="greeting" class="greeting"></div>
+    <div id="stats" class="stats">
+        <div class="stat-item">
+            <div class="stat-value" id="total-students">0</div>
+            <div class="stat-label">Total Students</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="boys-count">0</div>
+            <div class="stat-label">Boys</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-value" id="girls-count">0</div>
+            <div class="stat-label">Girls</div>
+        </div>
+    </div>
+    <div class="students" id="students-container"></div>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Perbankan Syari'ah A. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    const studentsData = [
+        { name: "Ikhwan Bahrudin", photo: "ikhwan.jpg", motivation: "Jangan pernah menyerah sebelum mencoba.", instagram: "mlnaamrihsn" , gender: "boy" },
+        { name: "Arul Hibatulloh", photo: "arul.jpg", motivation: "Kesalahan bukanlah kegagalan, melainkan batu loncatan. Kesalahan mengajarkan kita tentang kerapuhan diri dan membukakan jalan menuju kebijaksanaan. Tanpa kesalahan, kita tidak akan pernah tahu arti dari pembelajaran yang sesungguhnya.",  gender: "boy" },
+        { name: "Muhtaj 'Ali Mahsuni", photo: "muhtaj.jpg", motivation: "Akan ada hari sulit untuk membuatmu menjadi lebih kuat.",instagram:"onlytadd", gender: "boy"},
+        { name: "Wahid / El Cibe", photo: "wahid.jpg", motivation: "I don't care,hinaanmu tidak berduit , brisik.", instagram:"El_egante_12", gender: "boy" },
+        { name: "Hasannul Imam", photo: "hasannul.jpg", motivation: "Kepercayaan itu seperti jiwa, tidak akan pernah kembali setelah hilang.", instagram: "hsnlimam_", gender: "boy" },
+        { name: "Maulana Amri Hasan", photo: "amr.jpg", motivation: "No motivation, just do it", instagram: "mlnaamrihsn", gender: "boy" },
+        { name: "Rino Rialdi Maulana", photo: "rino.jpg", motivation: "Tidak ada kata tidak mungkin, sebelum kamu mencobanya.", instagram: "rinorial", gender: "boy" },
+        { name: "Nabil Shofar Romzi", photo: "nabil.jpg", motivation:"Jadilah diri sendiri", instagram: "nabilsfrmzi", gender: "boy" },
+        { name: "Mochamad Rama Nurwanto", photo: "", motivation: "", instagram: "",  gender: "boy" },
+        { name: "Nabila Putri Azzahra", photo: "azza.jpg", motivation: "You cannot see love without eyes", instagram: "thxrnbl",  gender: "girl" },
+        { name: "Jasmin Khofifah", photo: "jasmin.jpg", motivation: "Tiada heart yang tak hurt", instagram: "j.jkhffff_",  gender: "girl" },
+        { name: "Aulia Gulrukh", photo: "agul.jpg", motivation: "Males overthinking Jadi overloavingyou aja gimana?", instagram: "aulliaag",  gender: "girl" },
+        { name: "Alisah Riatin", photo: "alisah.jpg", motivation: "Mimpi akan menjadi kenyataan jika kita punya keberanian", instagram: "alisa.rqz",  gender: "girl" },
+        { name: "Sekar Husnul Alfiana", photo: "alfi.jpg", motivation: "Jika kamu menginginkan hasil yang lebih baik, buatlah pilihan yang lebih baik", instagram: "skarhsnulalfianaa_",  gender: "girl" },
+        { name: "Ananda Rizki Putri Dimyati", photo: "ananda.jpg", motivation: "Tidak ada proses yang mudah untuk tujuan yang indah", instagram: "anndrpd_",  gender: "girl" },
+        { name: "Aufa Damayanti", photo: "aufa.jpg", motivation: "No need to run, just walk and see everything around us. -Mark Lee", instagram: "x_ouvayn",  gender: "girl" },
+        { name: "Diana", photo: "diana.jpg", motivation: "Jangan pernah takut bermimpi besar, karena dalam mimpi besar terdapat kekuatan untuk mewujudkannya" , instagram: "dii_ynaaa",  gender: "girl" },
+        { name: "Dwi Puspa Sari", photo: "dwi.jpg", motivation: "Tidak ada yang pergi dan tidak ada yang datang, perihal hidup hanya mengajarkan bagaimana kita menerima dan mengikhlaskan", instagram: "dwipuspa.aa",  gender: "girl" },
+        { name: "Zalfa Zahiya Nur Qisthi", photo: "zalfa.jpg", motivation: "Jangan takut untuk berjalan terlambat, takutlah jika hanya berdiam diri", instagram: "j.jalpaa",  gender: "girl" },
+        { name: "Kamel", photo: "kamel.jpg", motivation: "Stay focused on the goal👍🏻", instagram: "Ikamel44",  gender: "girl" },
+        { name: "Sati Liyani", photo: "liyan.jpg", motivation: "Hidup bukan untuk mendahului, bermimpilah sendiri-sendiri.-hindia", instagram: "liyanssssss",  gender: "girl" },
+        { name: "Nabila", photo: "nabila.jpg", motivation: "Tantangan adalah apa yang membuat hidup menarik dan mengatasinya adalah apa yang membuat hidup bermakna.", instagram: "billaeey",  gender: "girl" },
+        { name: "Naella Fatisa", photo: "naella.jpg", motivation: "Tindakan adalah sebuah kunci dasar menuju ke kesuksesan", instagram: "Nella Fatisa",  gender: "girl" },
+        { name: "Naia Rahmatul Azzah", photo: "naia.jpg", motivation: "Do the best and be the best", instagram: "naiaar.a14",  gender: "girl" },
+        { name: "Nesyah Fidella", photo: "nesyah.jpg", motivation: "Tidak ada proses yg mudah untuk tujuan yg indah, kita masih dalam zona perjuangan. Takdir memang milik Allah, tapi usaha dan doa adalah milik kita.", instagram: "nesyahfdl_",  gender: "girl" },
+        { name: "Azzahra Khairunisa R", photo: "nisa.jpg", motivation: "Hidup bukanlah untuk menunggu badai berlalu, tetapi belajar menari di tengah hujan", instagram: "nnisazhrra",  gender: "girl" },
+        { name: "Nova Sukma Arum Andita", photo: "nova.jpg", motivation: "Hari ini berjuang hari esok ber-uang", instagram: "novaandita_",  gender: "girl" },
+        { name: "Nurul Alfiyah", photo: "nurul.jpg", motivation: "Jika rencana A belum berhasil, ingat masih ada 25 huruf Alfabet lainnya, so don't worry", instagram:"_nurulalfy_",  gender: "girl" },
+        { name: "Rifka Anggraeni", photo: "rifka.jpg", motivation: "Everything has a place and have a time", instagram: "rifka_anggrni",  gender: "girl" },
+        { name: "Silva Noer Awalliyah", photo: "silva.jpg", motivation: "Saat kamu memutuskan untuk bangun dari tidur, artinya kamu siap untuk menjalani hidup.", instagram: "silvaalyh",  gender: "girl" },
+        { name: "Sri Mulyani", photo: "sri.jpg", motivation: "Akan ku bayar semua rasa sakit itu dengan segala pencapaian ku, percayalah ambisi yang aku punya tersusun atas hinaan, remehan, cacian, hujatan. rasa sakit itu membawaku untuk terus berkembang maju dan memberi pembuktian yang berkelas.", instagram: "wei_xueiin",  gender: "girl" },
+        { name: "Tiara Setiawati", photo: "tiara.jpg", motivation: "Livin' the good live", instagram: "tiaraaastt_",  gender: "girl" },
+        { name: "Uswatun Khasana", photo: "usweh.jpg", motivation: "Jangan lupa bersyuku:)", instagram: "usweh08",  gender: "girl" },
+        { name: "Vanessa Enjelica", photo: "vanessa.jpg", motivation: "Jangan berharap pekerjaanmu dimudahkan, tapi berharaplah pundakmu dikuatkan", instagram: "zy.vans",  gender: "girl" },
+        { name: "Nur Az Varah", photo: "varah.jpg", motivation: "You are enough, just as you are", instagram: "nazv_23",  gender: "girl" },
+        { name: "Widia Ningsih", photo: "widia.jpg", motivation: "Keraguan lebih bajyak membunuh mimpi dari pada kegagalan", instagram: "nnwhhi_",  gender: "girl" },
+        { name: "Widiyanti", photo: "widiyanti.jpg", motivation : "Sebuah permata tidak akan dapat dipoles tanpa gesekan, demikian juga seseorang tidak akan menjadi sukses tanpa tantangan", instagram: "zzzflynti",  gender: "girl" },
+        { name: "Rahmadian Fatmawati", photo: "rahmadian.jpg", motivation: "Dalam menjalani hidup, jadilah orang yang kuat dan bermartabat.", instagram: "rhftmwt",  gender: "girl" },
+        { name: "Salsa Nur Jannah", photo: "salsa.jpg", motivation: "Tak ada perjuangan tanpa rasa lelah, tetep semangat sampai bismillahmu menjadi alhamdulillah", instagram: "salsanljh_",  gender: "girl" },
+    ];
+
+    const studentsContainer = document.getElementById('students-container');
+    const searchInput = document.getElementById('search-input');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const greetingElement = document.getElementById('greeting');
+    const statsElement = document.getElementById('stats');
+    const totalStudentsElement = document.getElementById('total-students');
+    const boysCountElement = document.getElementById('boys-count');
+    const girlsCountElement = document.getElementById('girls-count');
+
+    let currentFilter = 'all';
+
+    function createStudentCard(student) {
+    const card = document.createElement('div');
+    card.classList.add('student-card');
+    card.innerHTML = `
+        <img src="${student.photo}" alt="${student.name}" class="student-photo">
+        <div class="student-info">
+            <h3>${student.name}</h3>
+            <div class="student-details">
+                <p><strong>Motivation:</strong> ${student.motivation}</p>
+                <!-- Button Instagram dengan URL spesifik -->
+                <button class="instagram-button" onclick="window.open('https://www.instagram.com/${student.instagram}', '_blank')">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.35 3.608 1.326.975.975 1.264 2.241 1.326 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.351 2.633-1.326 3.608-.975.975-2.241 1.264-3.608 1.326-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.351-3.608-1.326-.975-.975-1.264-2.241-1.326-3.608-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.062-1.366.351-2.633 1.326-3.608.975-.975 2.241-1.264 3.608-1.326 1.265-.058 1.645-.07 4.849-.07zm0-2.163c-3.26 0-3.667.013-4.947.072-1.366.06-2.741.343-3.82 1.422-1.08 1.08-1.362 2.454-1.422 3.82-.059 1.28-.072 1.687-.072 4.947s.013 3.667.072 4.947c.06 1.366.343 2.741 1.422 3.82 1.08 1.08 2.454 1.362 3.82 1.422 1.28.059 1.687.072 4.947.072s3.667-.013 4.947-.072c1.366-.06 2.741-.343 3.82-1.422 1.08-1.08 1.362-2.454 1.422-3.82.059-1.28.072-1.687.072-4.947s-.013-3.667-.072-4.947c-.06-1.366-.343-2.741-1.422-3.82-1.08-1.08-2.454-1.362-3.82-1.422-1.28-.059-1.687-.072-4.947-.072zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zm0 10.124a3.962 3.962 0 1 1 0-7.924 3.962 3.962 0 1 1 0 7.924zm6.406-11.27a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 1 0 0 2.88z"/>
+                    </svg>
+                    Instagram
+                </button>
+            </div>
+        </div>
+    `;
+    card.addEventListener('click', () => {
+        const details = card.querySelector('.student-details');
+        details.classList.toggle('show');
+    });
+    return card;
+}
+
+    function displayStudents(students) {
+        studentsContainer.innerHTML = '';
+        students.forEach(student => {
+            if (currentFilter === 'all' || student.gender === currentFilter) {
+                studentsContainer.appendChild(createStudentCard(student));
+            }
+        });
+        updateStats(students);
+    }
+
+    function filterStudents(searchTerm) {
+        return studentsData.filter(student => 
+            student.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+    }
+
+    function updateStats(students) {
+        const totalStudents = students.length;
+        const boysCount = students.filter(student => student.gender === 'boy').length;
+        const girlsCount = students.filter(student => student.gender === 'girl').length;
+
+        totalStudentsElement.textContent = totalStudents;
+        boysCountElement.textContent = boysCount;
+        girlsCountElement.textContent = girlsCount;
+
+        statsElement.classList.add('show');
+    }
+
+    searchInput.addEventListener('input', () => {
+        const filteredStudents = filterStudents(searchInput.value);
+        displayStudents(filteredStudents);
+        updateGreeting(filteredStudents);
+    });
+
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const filteredStudents = filterStudents(searchInput.value);
+            if (filteredStudents.length > 0) {
+                const firstStudent = filteredStudents[0];
+                const studentCard = studentsContainer.querySelector(`.student-card:contains("${firstStudent.name}")`);
+                if (studentCard) {
+                    studentCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    studentCard.style.boxShadow = '0 0 0 3px #3498db';
+                    setTimeout(() => {
+                        studentCard.style.boxShadow = '';
+                    }, 3000);
+                }
+            }
+        }
+    });
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            currentFilter = button.dataset.filter;
+            displayStudents(studentsData);
+        });
+    });
+
+    function updateGreeting(filteredStudents) {
+        if (filteredStudents.length === 1) {
+            greetingElement.textContent = `Hai aku ${filteredStudents[0].name}`;
+            greetingElement.classList.add('show');
+        } else {
+            greetingElement.textContent = '';
+            greetingElement.classList.remove('show');
+        }
+    }
+
+    // Initial display of all students
+    displayStudents(studentsData);
+
+    // Animate elements on page load
+    window.addEventListener('load', () => {
+        document.querySelector('h1').style.opacity = '1';
+        document.querySelector('.search-container').style.opacity = '1';
+        document.querySelector('.filter-container').style.opacity = '1';
+        statsElement.classList.add('show');
+    });
+</script>
+</body>
+</html>

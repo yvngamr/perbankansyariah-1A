@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:url" content="https://myportfolio.vercel.app/">
+    <meta property="og:description" content="Website Perbankan Syari'ah 1A">
+    <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU">
+  
+<title>PS 1A</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU" type="jpg/png">
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', Times New Roman;
+        line-height: 1.5;
+        color: #333;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    header {
+        background-color: #2c3e50;
+        height: 99px;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: background-color 0.3s ease;
+        
+    }
+
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 1.9em;
+        font-weight: bold;
+        background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 5s ease infinite;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    main {
+        margin-top: 80px;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 2rem;
+        color: #2c3e50;
+        font-size: 2.5em;
+        position: relative;
+    }
+
+    h2::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 3px;
+        background-color: #3498db;
+        margin: 10px auto 0;
+    }
+
+    .btn {
+        display: inline-block;
+        background-color: #3498db;
+        color: #fff;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+    }
+
+    .btn:hover {
+        background-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(52, 152, 219, 0.3);
+    }
+
+    .hero {
+        height: 100vh;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+    }
+
+    .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .hero-background.active {
+        opacity: 1;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+        background-color: transparent;
+        padding: 2rem;
+        border-radius: 10px;
+        max-width: 600px;
+
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s, transform 1s;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 1s 0.5s, transform 1s 0.5s;
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+    }
+
+    .about {
+        background-color: #ecf0f1;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .about-image {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .about-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .about-image:hover img {
+        transform: scale(1.05);
+    }
+
+    .about-text {
+        max-width: 600px;
+        text-align: center;
+    }
+
+    .class-photos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .class-photo {
+        width: calc(20% - 1rem);
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+    .class-photo:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .photo-modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        max-height: 80%;
+        object-fit: contain;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.3s ease;
+    }
+
+    .photo-modal.show {
+        opacity: 1;
+    }
+
+    .photo-modal.show .modal-content {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    #map {
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
+        margin-top: 2rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+        background-color: #2c3e50;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: 2rem;
+    }
+
+    /* Loading Screen Styles */
+    #loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #2c3e50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+    }
+
+    .loader {
+        width: 50px;
+        height: 50px;
+        border: 3px solid #fff;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        animation: rotation 1s linear infinite;
+    }
+
+    .loader::after {
+        content: '';  
+        box-sizing: border-box;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 3px solid transparent;
+        border-bottom-color: #3498db;
+    }
+
+    @keyframes rotation {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Q&A Section Styles */
+    .qa-section {
+        background-color: #f8f9fa;
+        padding: 4rem 0;
+    }
+
+    .qa-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .qa-item {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        margin-bottom: 1rem;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .qa-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .qa-question {
+        padding: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .qa-question::after {
+        content: '+';
+        font-size: 1.5rem;
+        transition: transform 0.3s ease;
+    }
+
+    .qa-item.active .qa-question::after {
+        transform: rotate(45deg);
+    }
+
+    .qa-answer {
+        padding: 0 1rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .qa-item.active .qa-answer {
+        padding: 1rem;
+        max-height: 1000px;
+    }
+
+    /* Comment Section Styles */
+    .comment-section {
+        background-color: #fff;
+        padding: 2rem 0;
+    }
+
+    .comment-form {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+
+    .comment-form input,
+    .comment-form textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        transition: border-color 0.3s ease;
+    }
+
+    .comment-form input:focus,
+    .comment-form textarea:focus {
+        outline: none;
+        border-color: #3498db;
+    }
+
+    .comment-form textarea {
+        height: 100px;
+        resize: vertical;
+    }
+
+    .comment-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .comment {
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .comment:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+
+    .comment-author {
+        font-weight: bold;
+    }
+
+    .comment-date {
+        font-size: 0.8rem;
+        color: #777;
+    }
+
+    .comment-actions {
+        display: flex;
+        gap: 1rem;
+        margin-top: 0.5rem;
+    }
+
+    .comment-action {
+        background: none;
+        border: none;
+        color: #3498db;
+        cursor: pointer;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+
+    .comment-action:hover {
+        color: #2980b9;
+    }
+
+    .comment-replies {
+        margin-left: 2rem;
+        margin-top: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .class-photo {
+            width: calc(33.33% - 1rem);
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .class-photo {
+            width: calc(50% - 1rem);
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">Perbankan Syari'ah A</div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-background"></div>
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <h1>Welcome to Perbankan Syari'ah A</h1>
+                <p> "Generasi Milenial Anti Riba"</p>
+                <a href="#about" class="btn">Click</a>
+            </div>
+        </section>
+
+        <section id="about"   class="about">
+            <div class="container">
+                <h2>Tentang Kelas Kami</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="about.jpg" alt="Our Classroom">
+                    </div>
+                    <div class="about-text">
+                        <p id="about-text">Selamat datang di kelas kami! Kami yang terdiri dari 40 pelajar penuh semangat, masing-masing dengan bakat dan sudut pandang unik dalam perjalanan pendidikan kami. Kelas ini dikenal akan kreativitas, kolaborasi, dan komitmen terhadap keunggulan. Bersama, kami berupaya melampaui batasan pengetahuan, mendukung pertumbuhan satu sama lain, dan memberikan dampak positif bagi sekolah dan komunitas kami. Kami percaya pada pembelajaran aktif, diskusi mendalam, dan lingkungan yang suportif, di mana setiap siswa memiliki ruang untuk berkembang!</p>
+                        <button id="read-more" class="btn">Selengkapnya</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="students-section">
+            <div class="container">
+                <h2>Daftar Mahasiswa/I</h2>
+                <p>Di kelas kami terdiri dari 9 orang laki laki dan 31 orang perempuan, mau tau siapa aja? kuy kepoin spek sigma sama yali yalii🙏🏻</p>
+                <a href="./student-list.html" class="btn">Kepoin kuy</a>
+            </div>
+        </section>
+
+        <section class="class-photos-section">
+            <div class="container">
+                <h2>Class Photos</h2>
+                <div class="class-photos">
+                    <img src="foto1.jpg" alt="Class Photo 1" class="class-photo">
+                    <img src="foto2.jpg" alt="Class Photo 2" class="class-photo">
+                    <img src="foto3.jpg" alt="Class Photo 3" class="class-photo">
+                    <img src="foto4.jpg" alt="Class Photo 4" class="class-photo">
+                    <img src="foto5.jpg" alt="Class Photo 5" class="class-photo">
+                </div>
+            </div>
+        </section>
+
+        <section class="qa-section">
+            <div class="container">
+                <h2>Ada apa aja sih?</h2>
+                <div class="qa-container">
+                    <div class="qa-item">
+                        <div class="qa-question">Apa yang membuat kelas semakin tegang?</div>
+                        <div class="qa-answer">Yap, disaat ditembak pertanyaan, tapi ga merhatiin🗿.</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="qa-question">Kelas A jalur apa si?</div>
+                        <div class="qa-answer">Tentunya jaluuuur ILLAHI🙏🏻🤗</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="qa-question">Apa sih moment kocak yang bakalan suka keinget?</div>
+                        <div class="qa-answer">Uuuuuy, tentunya el cibe bin el gantenge yang siap mengguncang dengan motor GL-nya🗿</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="qa-question">Siapa leader kelas A</div>
+                        <div class="qa-answer">Seseorang yang ditakuti di Kampus FEBI, yang dimana tatapannya seperti Rajanya dari segala Raja yang siap mengguncang Cirebon dan sekitarnya, disaat GL ku bergetar disitulah ekhem lanjutin</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="comment-section">
+            <div class="container">
+                <h2>Obrolin</h2>
+                <form id="comment-form" class="comment-form">
+                    <input type="text" id="comment-name" placeholder="Nama Kamu" required>
+                    <textarea id="comment-text" placeholder="Jangan ada unsur SARA, PORN, ATAUPUN HAL NEGATIF YA" required></textarea>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+                <div id="comment-list" class="comment-list">
+                    <!-- Comments will be dynamically added here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <div class="container">
+                <h2>Lokasi</h2>
+                <iframe id="map" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Uin%20siber%20syekh+(My%20Bu)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Perbankan Syari'ah A. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="photo-modal" class="photo-modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script>
+        // Loading screen
+        const loadingScreen = document.getElementById('loading-screen');
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+
+        // Auto-sliding background for hero section
+        const heroBackgrounds = document.querySelectorAll('.hero-background');
+        const backgroundImages = [
+            'hero1.jpg',
+            'hero2.jpg',
+            'hero3.jpg'
+        ];
+        let currentBg = 0;
+
+        function changeBackground() {
+            heroBackgrounds[currentBg].style.backgroundImage = `url(${backgroundImages[currentBg]})`;
+            heroBackgrounds[currentBg].classList.add('active');
+            const prevBg = (currentBg - 1 + heroBackgrounds.length) % heroBackgrounds.length;
+            heroBackgrounds[prevBg].classList.remove('active');
+            currentBg = (currentBg + 1) % heroBackgrounds.length;
+        }
+
+        changeBackground(); // Initial background
+        setInterval(changeBackground, 5000); // Change every 5 seconds
+
+        // Fade-in effect for hero content
+        window.addEventListener('load', () => {
+            document.querySelector('.hero h1').classList.add('fade-in');
+            document.querySelector('.hero p').classList.add('fade-in');
+        });
+
+        // Read More functionality for About section
+        const aboutText = document.getElementById('about-text');
+        const readMoreBtn = document.getElementById('read-more');
+        const fullAboutText = `Selamat datang di kelas kami! Kami adalah kelompok dinamis yang terdiri dari 40 pelajar penuh semangat, masing-masing dengan bakat dan sudut pandang unik dalam perjalanan pendidikan kami. Kelas ini dikenal akan kreativitas, kolaborasi, dan komitmen terhadap keunggulan. Bersama, kami berupaya melampaui batasan pengetahuan, mendukung pertumbuhan satu sama lain, dan memberikan dampak positif bagi sekolah dan komunitas kami. Kami percaya pada pembelajaran aktif, diskusi mendalam, dan lingkungan yang suportif, di mana setiap siswa memiliki ruang untuk berkembang. 
+`;
+
+        readMoreBtn.addEventListener('click', () => {
+            if (aboutText.textContent.length < fullAboutText.length) {
+                aboutText.textContent = fullAboutText;
+                readMoreBtn.textContent = 'Sedikit';
+            } else {
+                aboutText.textContent = fullAboutText.slice(0, 200) + '...';
+                readMoreBtn.textContent = 'Selengkapnya';
+            }
+        });
+
+        // Fade in class photos
+        window.addEventListener('load', () => {
+            const classPhotos = document.querySelectorAll('.class-photo');
+            classPhotos.forEach((photo, index) => {
+                setTimeout(() => {
+                    photo.style.opacity = '1';
+                }, index * 200);
+            });
+        });
+
+        // Photo modal functionality
+        const modal = document.getElementById('photo-modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeBtn = document.getElementsByClassName('close')[0];
+
+        document.querySelectorAll('.class-photo').forEach(img => {
+            img.onclick = function() {
+                modal.style.display = 'block';
+                modalImg.src = this.src;
+                setTimeout(() => {
+                    modal.classList.add('show');
+                }, 10);
+            }
+        });
+
+        closeBtn.onclick = function() {
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        // Scroll effect for header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Q&A Section Functionality
+        const qaItems = document.querySelectorAll('.qa-item');
+        qaItems.forEach(item => {
+            const question = item.querySelector('.qa-question');
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Comment Section Functionality
+        const commentForm = document.getElementById('comment-form');
+        const commentList = document.getElementById('comment-list');
+        let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+        function saveComments() {
+            localStorage.setItem('comments', JSON.stringify(comments));
+        }
+
+        function createCommentElement(comment) {
+            const commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+            commentElement.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-author">${comment.name}</span>
+                    <span class="comment-date">${new Date(comment.date).toLocaleString()}</span>
+                </div>
+                <p>${comment.text}</p>
+                <div class="comment-actions">
+                    <button class="comment-action like-btn" data-id="${comment.id}">Like (${comment.likes})</button>
+                    <button class="comment-action reply-btn" data-id="${comment.id}">Reply</button>
+                    <button class="comment-action delete-btn" data-id="${comment.id}">Delete</button>
+                </div>
+                <div class="comment-replies"></div>
+            `;
+            return commentElement;
+        }
+
+        function renderComments() {
+            commentList.innerHTML = '';
+            comments.forEach(comment => {
+                const commentElement = createCommentElement(comment);
+                commentList.appendChild(commentElement);
+
+                if (comment.replies) {
+                    const repliesContainer = commentElement.querySelector('.comment-replies');
+                    comment.replies.forEach(reply => {
+                        const replyElement = createCommentElement(reply);
+                        repliesContainer.appendChild(replyElement);
+                    });
+                }
+            });
+        }
+
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('comment-name').value;
+            const text = document.getElementById('comment-text').value;
+            const newComment = {
+                id: Date.now(),
+                name,
+                text,
+                date: new Date().toISOString(),
+                likes: 0,
+                replies: []
+            };
+            comments.push(newComment);
+            saveComments();
+            renderComments();
+            commentForm.reset();
+        });
+
+        commentList.addEventListener('click', (e) => {
+            if (e.target.classList.contains('like-btn')) {
+                const commentId = parseInt(e.target.dataset.id);
+                const comment = comments.find(c => c.id === commentId);
+                comment.likes++;
+                saveComments();
+                renderComments();
+            } else if (e.target.classList.contains('reply-btn')) {
+                const commentId = parseInt(e.target.dataset.id);
+                const replyText = prompt('Enter your reply:');
+                if (replyText) {
+                    const comment = comments.find(c => c.id === commentId);
+                    const reply = {
+                        id: Date.now(),
+                        name: 'Anonymous', // You can change this to allow name input for replies
+                        text: replyText,
+                        date: new Date().toISOString(),
+                        likes: 0
+                    };
+                    comment.replies.push(reply);
+                    saveComments();
+                    renderComments();
+                }
+            } else if (e.target.classList.contains('delete-btn')) {
+                const commentId = parseInt(e.target.dataset.id);
+                comments = comments.filter(c => c.id !== commentId);
+                saveComments();
+                renderComments();
+            }
+        });
+
+        renderComments();
+    </script>
+</body>
+</html>
