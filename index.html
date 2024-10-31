@@ -637,13 +637,14 @@
     <script>
         // Loading screen
         const loadingScreen = document.getElementById('loading-screen');
+        const loadingScreen = document.getElementById('loading-screen');
         window.addEventListener('load', () => {
             setTimeout(() => {
                 loadingScreen.style.opacity = '0';
                 setTimeout(() => {
                     loadingScreen.style.display = 'none';
                 }, 500);
-            }, 1500);
+            }, 3000); // Changed from 1500 to 3000 milliseconds (3 seconds)
         });
 
         // Auto-sliding background for hero section
