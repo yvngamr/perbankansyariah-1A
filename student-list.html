@@ -529,8 +529,45 @@
         }
     }
 
-    // Initial display of all students
-    displayStudents(studentsData);
+    function updateURL(studentName) {
+            if (studentName) {
+                history.pushState(null, '', `?student=${encodeURIComponent(studentName)}`);
+            } else {
+                history.pushState(null, '', window.location.pathname);
+            }
+        }
+
+        searchInput.addEventListener('input', () => {
+            const filteredStudents = filterStudents(searchInput.value);
+            displayStudents(filteredStudents);
+            updateGreeting(filteredStudents);
+            updateURL(filteredStudents.length === 1 ? filteredStudents[0].name : '');
+        });
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentFilter = button.dataset.filter;
+                displayStudents(studentsData);
+            });
+        });
+
+        // Initial display of all students
+        displayStudents(studentsData);
+
+        // Check for student parameter in URL on page load
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentName = urlParams.get('student');
+            if (studentName) {
+                searchInput.value = studentName;
+                const filteredStudents = filterStudents(studentName);
+                displayStudents(filteredStudents);
+                updateGreeting(filteredStudents);
+            }
+        });
+
 
     // Animate elements on page load
     window.addEventListener('load', () => {
