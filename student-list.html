@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:url" content="https://myportfolio.vercel.app/">
-<meta property="og:description" content="Website Perbankan Syari'ah 1A">
-<meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU">
+    <meta property="og:description" content="Website Perbankan Syari'ah 1A">
+    <meta property="og:image" content="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU">
   
 <title>PS 1A</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU" type="jpg/png">
+  <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7ppeKLMse-BjNgOnLY45BoAmGimNIq8S8pw&usqp=CAU" type="jpg/png">
 <style>
-* {
+    * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -215,7 +215,7 @@
         opacity: 1;
     }
     
-    @keyframes smoothFlicker {
+@keyframes smoothFlicker {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
@@ -242,6 +242,7 @@
         transform: scale(1.05);
         box-shadow: 0px 6px 20px rgba(81, 91, 212, 0.6);
     }
+
     .greeting {
         text-align: center;
         font-size: 2rem;
@@ -375,7 +376,7 @@
         { name: "Hasannul Imam", photo: "hasannul.jpg", motivation: "Kepercayaan itu seperti jiwa, tidak akan pernah kembali setelah hilang.", instagram: "hsnlimam_", gender: "boy" },
         { name: "Maulana Amri Hasan", photo: "amr.jpg", motivation: "No motivation, just do it", instagram: "mlnaamrihsn", gender: "boy" },
         { name: "Rino Rialdi Maulana", photo: "rino.jpg", motivation: "Tidak ada kata tidak mungkin, sebelum kamu mencobanya.", instagram: "rinorial", gender: "boy" },
-        { name: "Nabil Shofar  Romzi", photo: "nabil.jpg", motivation:"Jadilah diri sendiri", instagram: "nabilsfrmzi", gender: "boy" },
+        { name: "Nabil Shofar Romzi", photo: "nabil.jpg", motivation:"Jadilah diri sendiri", instagram: "nabilsfrmzi", gender: "boy" },
         { name: "Mochamad Rama Nurwanto", photo: "", motivation: "", instagram: "",  gender: "boy" },
         { name: "Nabila Putri Azzahra", photo: "azza.jpg", motivation: "You cannot see love without eyes", instagram: "thxrnbl",  gender: "girl" },
         { name: "Jasmin Khofifah", photo: "jasmin.jpg", motivation: "Tiada heart yang tak hurt", instagram: "j.jkhffff_",  gender: "girl" },
@@ -409,9 +410,8 @@
         { name: "Salsa Nur Jannah", photo: "salsa.jpg", motivation: "Tak ada perjuangan tanpa rasa lelah, tetep semangat sampai bismillahmu menjadi alhamdulillah", instagram: "salsanljh_",  gender: "girl" },
     ];
 
-    // Sort students alphabetically by name
     studentsData.sort((a, b) => a.name.localeCompare(b.name));
-
+    
     const studentsContainer = document.getElementById('students-container');
     const searchInput = document.getElementById('search-input');
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -424,29 +424,30 @@
     let currentFilter = 'all';
 
     function createStudentCard(student) {
-        const card = document.createElement('div');
-        card.classList.add('student-card');
-        card.innerHTML = `
-            <img src="${student.photo}" alt="${student.name}" class="student-photo">
-            <div class="student-info">
-                <h3>${student.name}</h3>
-                <div class="student-details">
-                    <p><strong>Motivation:</strong> ${student.motivation}</p>
-                    <button class="instagram-button" onclick="window.open('https://www.instagram.com/${student.instagram}', '_blank')">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.35 3.608 1.326.975.975 1.264 2.241 1.326 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.351 2.633-1.326 3.608-.975.975-2.241 1.264-3.608 1.326-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.351-3.608-1.326-.975-.975-1.264-2.241-1.326-3.608-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.062-1.366.351-2.633 1.326-3.608.975-.975 2.241-1.264 3.608-1.326 1.265-.058 1.645-.07 4.849-.07zm0-2.163c-3.26 0-3.667.013-4.947.072-1.366.06-2.741.343-3.82 1.422-1.08 1.08-1.362 2.454-1.422 3.82-.059 1.28-.072 1.687-.072 4.947s.013 3.667.072 4.947c.06 1.366.343 2.741 1.422 3.82 1.08 1.08 2.454 1.362 3.82 1.422 1.28.059 1.687.072 4.947.072s3.667-.013 4.947-.072c1.366-.06 2.741-.343 3.82-1.422 1.08-1.08 1.362-2.454 1.422-3.82.059-1.28.072-1.687.072-4.947s-.013-3.667-.072-4.947c-.06-1.366-.343-2.741-1.422-3.82-1.08-1.08-2.454-1.362-3.82-1.422-1.28-.059-1.687-.072-4.947-.072zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zm0 10.124a3.962 3.962 0 1 1 0-7.924 3.962 3.962 0 1 1 0 7.924zm6.406-11.27a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 1 0 0 2.88z"/>
-                        </svg>
-                        Instagram
-                    </button>
-                </div>
+    const card = document.createElement('div');
+    card.classList.add('student-card');
+    card.innerHTML = `
+        <img src="${student.photo}" alt="${student.name}" class="student-photo">
+        <div class="student-info">
+            <h3>${student.name}</h3>
+            <div class="student-details">
+                <p><strong>Motivation:</strong> ${student.motivation}</p>
+                <!-- Button Instagram dengan URL spesifik -->
+                <button class="instagram-button" onclick="window.open('https://www.instagram.com/${student.instagram}', '_blank')">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.849.07 1.366.062 2.633.35 3.608 1.326.975.975 1.264 2.241 1.326 3.608.058 1.265.07 1.645.07 4.849s-.012 3.584-.07 4.849c-.062 1.366-.351 2.633-1.326 3.608-.975.975-2.241 1.264-3.608 1.326-1.265.058-1.645.07-4.849.07s-3.584-.012-4.849-.07c-1.366-.062-2.633-.351-3.608-1.326-.975-.975-1.264-2.241-1.326-3.608-.058-1.265-.07-1.645-.07-4.849s.012-3.584.07-4.849c.062-1.366.351-2.633 1.326-3.608.975-.975 2.241-1.264 3.608-1.326 1.265-.058 1.645-.07 4.849-.07zm0-2.163c-3.26 0-3.667.013-4.947.072-1.366.06-2.741.343-3.82 1.422-1.08 1.08-1.362 2.454-1.422 3.82-.059 1.28-.072 1.687-.072 4.947s.013 3.667.072 4.947c.06 1.366.343 2.741 1.422 3.82 1.08 1.08 2.454 1.362 3.82 1.422 1.28.059 1.687.072 4.947.072s3.667-.013 4.947-.072c1.366-.06 2.741-.343 3.82-1.422 1.08-1.08 1.362-2.454 1.422-3.82.059-1.28.072-1.687.072-4.947s-.013-3.667-.072-4.947c-.06-1.366-.343-2.741-1.422-3.82-1.08-1.08-2.454-1.362-3.82-1.422-1.28-.059-1.687-.072-4.947-.072zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 1 0 0-12.324zm0 10.124a3.962 3.962 0 1 1 0-7.924 3.962 3.962 0 1 1 0 7.924zm6.406-11.27a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 1 0 0 2.88z"/>
+                    </svg>
+                    Instagram
+                </button>
             </div>
-        `;
-        card.addEventListener('click', () => {
-            const details = card.querySelector('.student-details');
-            details.classList.toggle('show');
-        });
-        return card;
-    }
+        </div>
+    `;
+    card.addEventListener('click', () => {
+        const details = card.querySelector('.student-details');
+        details.classList.toggle('show');
+    });
+    return card;
+}
 
     function displayStudents(students) {
         studentsContainer.innerHTML = '';
@@ -476,40 +477,27 @@
         statsElement.classList.add('show');
     }
 
-    function updateGreeting(filteredStudents) {
-        if (filteredStudents.length === 1) {
-            greetingElement.textContent = `Hai aku ${filteredStudents[0].name}`;
-            greetingElement.classList.add('show');
-        } else {
-            greetingElement.textContent = '';
-            greetingElement.classList.remove('show');
-        }
-    }
-
-    function updateURL(studentName) {
-        if (studentName) {
-            const formattedName = studentName.toLowerCase().replace(/ /g, '-');
-            history.pushState(null, '', `/student-list.html/${formattedName}`);
-        } else {
-            history.pushState(null, '', '/student-list.html');
-        }
-    }
-
-    function getStudentFromURL() {
-        const path = window.location.pathname;
-        const match = path.match(/\/student-list\.html\/(.+)/);
-        if (match) {
-            const formattedName = match[1].replace(/-/g, ' ');
-            return studentsData.find(student => student.name.toLowerCase() === formattedName);
-        }
-        return null;
-    }
-
     searchInput.addEventListener('input', () => {
         const filteredStudents = filterStudents(searchInput.value);
         displayStudents(filteredStudents);
         updateGreeting(filteredStudents);
-        updateURL(filteredStudents.length === 1 ? filteredStudents[0].name : '');
+    });
+
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const filteredStudents = filterStudents(searchInput.value);
+            if (filteredStudents.length > 0) {
+                const firstStudent = filteredStudents[0];
+                const studentCard = studentsContainer.querySelector(`.student-card:contains("${firstStudent.name}")`);
+                if (studentCard) {
+                    studentCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    studentCard.style.boxShadow = '0 0 0 3px #3498db';
+                    setTimeout(() => {
+                        studentCard.style.boxShadow = '';
+                    }, 3000);
+                }
+            }
+        }
     });
 
     filterButtons.forEach(button => {
@@ -521,25 +509,63 @@
         });
     });
 
-    // Initial display of all students
-    displayStudents(studentsData);
+    function updateGreeting(filteredStudents) {
+        if (filteredStudents.length === 1) {
+            greetingElement.textContent = `Hai aku ${filteredStudents[0].name}`;
+            greetingElement.classList.add('show');
+        } else {
+            greetingElement.textContent = '';
+            greetingElement.classList.remove('show');
+        }
+    }
 
-    // Check for student in URL on page load
-    window.addEventListener('load', () => {
-        const studentFromURL = getStudentFromURL();
-        if (studentFromURL) {
-            searchInput.value = studentFromURL.name;
-            const filteredStudents = [studentFromURL];
-            displayStudents(filteredStudents);
-            updateGreeting(filteredStudents);
+    function updateURL(studentName) {
+            if (studentName) {
+                history.pushState(null, '', `?student=${encodeURIComponent(studentName)}`);
+            } else {
+                history.pushState(null, '', window.location.pathname);
+            }
         }
 
+        searchInput.addEventListener('input', () => {
+            const filteredStudents = filterStudents(searchInput.value);
+            displayStudents(filteredStudents);
+            updateGreeting(filteredStudents);
+            updateURL(filteredStudents.length === 1 ? filteredStudents[0].name : '');
+        });
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                currentFilter = button.dataset.filter;
+                displayStudents(studentsData);
+            });
+        });
+
+        // Initial display of all students
+        displayStudents(studentsData);
+
+        // Check for student parameter in URL on page load
+        window.addEventListener('load', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const studentName = urlParams.get('student');
+            if (studentName) {
+                searchInput.value = studentName;
+                const filteredStudents = filterStudents(studentName);
+                displayStudents(filteredStudents);
+                updateGreeting(filteredStudents);
+            }
+        });
+
+
+    // Animate elements on page load
+    window.addEventListener('load', () => {
         document.querySelector('h1').style.opacity = '1';
         document.querySelector('.search-container').style.opacity = '1';
         document.querySelector('.filter-container').style.opacity = '1';
         statsElement.classList.add('show');
     });
-</script>
 </script>
 </body>
 </html>
